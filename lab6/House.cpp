@@ -58,3 +58,8 @@ void House::setPrice(int price)
 {
     this->price = price;
 }
+
+std::string House::getAddress() const
+{
+    return address;
+}

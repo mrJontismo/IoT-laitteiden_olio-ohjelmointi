@@ -19,4 +19,5 @@ public:
     void setAddress(const std::string& address);
     void setArea(double size);
     void setPrice(int price);
+    std::string getAddress() const;
 };
