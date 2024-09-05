@@ -9,7 +9,7 @@ int main()
     std::vector<std::string> names;
     std::string input;
 
-    std::cout << "Enter directory names or a blank line to stop entry:" << std::endl;
+    std::cout << "Enter directory names or a blank line to stop entry: \n";
     while (true)
     {
         std::getline(std::cin, input);
@@ -27,24 +27,24 @@ int main()
     }
 
     std::filesystem::create_directories(relative_path);
+
     std::filesystem::path file_path = relative_path / "result.txt";
-
-    std::ofstream file;
-    file.open(file_path);
-
     std::filesystem::path absolute_path = std::filesystem::absolute(file_path);
 
-    std::cout << absolute_path << std::endl;
-    file << absolute_path << std::endl;
+    std::ofstream results;
+    results.open(file_path);
+
+    std::cout << absolute_path << "\n";
+    results << absolute_path << "\n";
 
     for (const std::string &str : names)
     {
-        std::cout << str << std::endl;
-        file << str << std::endl;
+        std::cout << str << "\n";
+        results << str << "\n";
     }
 
-    std::cout << relative_path << std::endl;
-    file << relative_path << std::endl;
+    std::cout << relative_path << "\n";
+    results << relative_path << "\n";
 
     return 0;
 }

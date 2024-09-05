@@ -9,6 +9,11 @@ int main()
     std::cout << "How many numbers do you want to enter? ";
     std::cin >> num;
 
+    if (num <= 0)
+    {
+        return -1;
+    }
+
     for (int i = 0; i < num; ++i)
     {
         int number = 0;
@@ -26,7 +31,7 @@ int main()
             std::cout << ", ";
         }
     }
-    std::cout << std::endl;
+    std::cout << "\n";
 
     return 0;
 }

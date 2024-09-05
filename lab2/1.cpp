@@ -15,20 +15,20 @@ int main()
         {
             break;
         }
-
+        
+        int num = 0;
         int sum = 0;
         int count = 0;
-        int num = 0;
 
-        std::stringstream num_stream(input);
+        std::istringstream num_stream(input);
 
-        while(num_stream >> num)
+        while (num_stream >> num)
         {
             sum += num;
             ++count;
         }
 
-        std::cout << "Total of " << count << " numbers is " << sum << std::endl;
+        std::cout << "Total of " << count << " numbers is " << sum << "\n";
     }
 
     return 0;

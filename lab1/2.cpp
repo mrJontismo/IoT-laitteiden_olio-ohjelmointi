@@ -32,7 +32,7 @@ int main()
 
         replace_char(input, replace[0], '_');
 
-        std::cout << "Result: " << input << std::endl;
+        std::cout << "Result: " << input << "\n";
     }
 
     return 0;
