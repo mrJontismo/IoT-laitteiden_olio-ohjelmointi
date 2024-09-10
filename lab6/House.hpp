@@ -3,7 +3,8 @@
 #include <iostream>
 #include <string>
 
-class House {
+class House
+{
 private:
     std::string address;
     double size;
