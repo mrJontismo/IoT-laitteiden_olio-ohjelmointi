@@ -49,28 +49,28 @@ void PrintWithIndex::operator()(int number)
     std::cout << "#" << index++ << ": " << number << " ";
 }
 
-void test_generator(RandGen_2& ur, int count)
+void test_generator(RandGen_2 rg, int count)
 {
     std::vector<int> numbers;
     std::cout << "Generating numbers:" << std::endl;
+
     try
     {
         for (int i = 0; i < count; ++i)
         {
-            int num = ur();
-            numbers.push_back(num);
+            numbers.push_back(rg());
         }
     }
     catch (std::runtime_error& e)
     {
-        std::cout << "Exception: " << e.what()
-                  << ". Tried to generate " << count << " random numbers. Got only " << numbers.size() << std::endl;
+        std::cout << "Exception: " << e.what() << ". Tried to generate " << count << " random numbers. Got only " << numbers.size() << std::endl;
     }
 
     for (int num : numbers)
     {
         std::cout << num << std::endl;
     }
+    
     std::cout << "End of generator" << std::endl;
 }
 
@@ -89,6 +89,5 @@ int main()
     test_generator(randGen2, 7);
     test_generator(randGen2, 70); // this will cause exception
 
-    return 0;
     return 0;
 }
