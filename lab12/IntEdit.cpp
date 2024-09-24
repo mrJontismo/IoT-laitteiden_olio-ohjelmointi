@@ -3,7 +3,9 @@
 //
 
 #include "IntEdit.h"
+#include "Observer.h"
 #include <iostream>
+#include <memory>
 
 IntEdit::IntEdit(std::string menu_title) :
         MenuItem(menu_title), value(0), backup(0), changed(false) {
@@ -32,7 +34,7 @@ bool IntEdit::event(MenuItem::menuEvent e) {
             if (changed) {
                 changed = false;
                 backup = value;
-                // notify?
+                notify_observers();
             }
             break;
         case MenuItem::back:
@@ -53,4 +55,17 @@ bool IntEdit::event(MenuItem::menuEvent e) {
 void IntEdit::show() {
     std::cout << "[" << menu_title << "]" << std::endl;
     std::cout << "Value: " << value << std::endl;
+}
+
+void IntEdit::add_observer(std::shared_ptr<Observer> observer)
+{
+    observers.push_back(observer);
+}
+
+void IntEdit::notify_observers()
+{
+    for (const auto &observer : observers)
+    {
+        observer->update(value);
+    }
 }
